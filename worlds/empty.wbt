@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.8373949093081172 0.535238496838948 0.11085809562875257 0.421945171418698
-  position 1.5872469275905638 1.806633742370641 3.619735905915627
+  orientation -0.7999380128933243 -0.5972735157731801 -0.05799588678711786 0.32082985195720276
+  position 0.18100390947548228 0.8759814208265303 1.396009927047652
 }
 TexturedBackground {
 }
@@ -60,6 +60,67 @@ Solid {
           children [
             USE First_structure
           ]
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.07 0 0
+          }
+          endPoint Solid {
+            translation -0.07 0 0
+            children [
+              DEF pendulum Group {
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 1 0
+                    }
+                    geometry Box {
+                      size 0.04 0.1 0.1
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0 0 1
+                      anchor -0.02 0 0
+                    }
+                    endPoint Solid {
+                      translation -0.12 0 0
+                      rotation 0 0 1 1.5708
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 1 1 0
+                          }
+                          geometry Cylinder {
+                            height 0.2
+                            radius 0.02
+                          }
+                        }
+                        Transform {
+                          translation 0 0.1 0
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0 1 1
+                                roughness 1
+                              }
+                              geometry Sphere {
+                                radius 0.06
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                      physics Physics {
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+            physics Physics {
+            }
+          }
         }
       ]
     }
