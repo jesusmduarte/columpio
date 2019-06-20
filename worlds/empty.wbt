@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.7439372291185097 0.6634707904345524 0.07977411467151699 0.1247335859391999
-  position 1.078735665329855 0.9229823255456292 3.295221622222725
+  orientation -0.8373949093081172 0.535238496838948 0.11085809562875257 0.421945171418698
+  position 1.5872469275905638 1.806633742370641 3.619735905915627
 }
 TexturedBackground {
 }
@@ -15,7 +15,7 @@ Solid {
   translation 0 0.4 0
   rotation 1 0 0 0
   children [
-    Group {
+    DEF First_structure Group {
       children [
         DEF POST1 Shape {
           appearance PBRAppearance {
@@ -54,6 +54,13 @@ Solid {
       rotation 0 0 1 1.5708
       children [
         USE POST1
+        Transform {
+          translation -0.35 -0.45 0.25
+          rotation 0 0 1 -1.5708
+          children [
+            USE First_structure
+          ]
+        }
       ]
     }
   ]
